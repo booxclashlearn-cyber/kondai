@@ -1,4 +1,4 @@
-const API_BASE=import.meta.env.VITE_API_BASE||"http://localhost:8000/api/v1";
+const API_BASE=import.meta.env.VITE_API_BASE||"http://localhost:8000/api/v1"||"https://kondai.onrender.com/api/v1";
 const baseHeaders=():HeadersInit=>({"Content-Type":"application/json","X-User-Id":import.meta.env.VITE_DEV_USER_ID||"local-founder","X-Workspace-Id":import.meta.env.VITE_DEV_WORKSPACE_ID||"local-workspace"});
 type ValidationError={loc?:Array<string|number>;msg?:string};
 function formatError(payload:unknown,status:number):string{if(!payload||typeof payload!=="object")return `Request failed (${status})`;const detail=(payload as {detail?:unknown}).detail;if(typeof detail==="string")return detail;if(Array.isArray(detail))return detail.map((item:unknown)=>{if(!item||typeof item!=="object")return String(item);const error=item as ValidationError;const location=(error.loc||[]).filter(part=>part!=="body").join(".");return location?`${location}: ${error.msg||"Invalid value"}`:error.msg||"Invalid value"}).join(" | ");return `Request failed (${status})`;}
