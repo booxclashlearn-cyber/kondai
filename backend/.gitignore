@@ -1,0 +1,92 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.tox/
+.nox/
+
+# Test and coverage files
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+pytest-report.xml
+
+# Build and package files
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# Keep the example environment file
+!.env.example
+
+# Google, Firebase and service-account credentials
+serviceAccountKey.json
+service-account.json
+firebase-service-account.json
+google-credentials.json
+credentials.json
+client_secret*.json
+*-firebase-adminsdk-*.json
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Kondai runtime data
+data/store.json
+data/test-store.json
+data/*.tmp
+data/backups/
+
+# Uploaded and generated files
+uploads/
+generated/
+exports/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+uvicorn*.log
+gunicorn*.log
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Cloud deployment files generated locally
+.gcloud/
+.firebase/
