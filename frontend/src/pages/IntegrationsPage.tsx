@@ -465,6 +465,12 @@ export function IntegrationsPage() {
     return (details.summary || {}) as Record<string, unknown>;
   }
 
+  function stringValue(value: unknown): string | null {
+    return typeof value === "string" && value.trim() ? value : null;
+  }
+
+  const gmailConnected = Boolean(byKey.gmail?.details.connected);
+
   return (
     <section className="page">
       <PageHeader
@@ -480,6 +486,7 @@ export function IntegrationsPage() {
           const metrics = summary(details);
           const connected =
             Boolean(details.connected) || item.status.includes("connected");
+          const lastSyncedAt = stringValue(details.last_synced_at);
 
           return (
             <Panel key={item.key} className="integration-card connector-card">
@@ -555,12 +562,11 @@ export function IntegrationsPage() {
                         </span>
                       </>
                     )}
-                    {details.last_synced_at && (
+                    {lastSyncedAt ? (
                       <small>
-                        Last refreshed{" "}
-                        {new Date(String(details.last_synced_at)).toLocaleString()}
+                        Last refreshed {new Date(lastSyncedAt).toLocaleString()}
                       </small>
-                    )}
+                    ) : null}
                   </div>
                 )}
 
@@ -848,7 +854,7 @@ export function IntegrationsPage() {
         </Panel>
       )}
 
-      {active === "gmail" && byKey.gmail?.details.connected && (
+      {active === "gmail" && gmailConnected && (
         <Panel className="connector-form-panel">
           <div className="section-heading">
             <div>
