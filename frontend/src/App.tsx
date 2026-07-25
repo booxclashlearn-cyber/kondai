@@ -10,6 +10,7 @@ import { KnowledgePage } from "./pages/KnowledgePage";
 import { SetupPage } from "./pages/SetupPage";
 import { SupportPage } from "./pages/SupportPage";
 import { TodayPage } from "./pages/TodayPage";
+import PrivacyPage from "./pages/PrivacyPage";
 
 function Workspace() {
   return (
@@ -28,6 +29,7 @@ function Workspace() {
           <Route path="/intelligence" element={<IntelligencePage />} />
           <Route path="/growth" element={<GrowthPage />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </Layout>
     </OnboardingGate>
