@@ -188,3 +188,15 @@ npm run build
 - Add scheduled daily reviews and outcome refreshes through Cloud Scheduler.
 - Add BigQuery and vector retrieval for larger datasets and deeper cohort analysis.
 - Complete Meta verification and App Review for external WhatsApp customer onboarding.
+
+## CORS-safe local and production startup
+
+The top-level application is globally wrapped by CORS. Start it using the
+module path below; do not run a different `main.py` from the repository root:
+
+```powershell
+cd backend
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Use `http://localhost:8000/api/v1/cors-status` to verify the loaded build.
