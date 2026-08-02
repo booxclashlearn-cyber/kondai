@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "clickhouse": {
+      "command": "uv",
+      "args": ["run", "--with", "mcp-clickhouse", "mcp-clickhouse"],
+      "env": {
+        "CLICKHOUSE_HOST": "localhost",
+        "CLICKHOUSE_PORT": "8123",
+        "CLICKHOUSE_USER": "echocut_mcp_readonly",
+        "CLICKHOUSE_PASSWORD": "replace-locally",
+        "CLICKHOUSE_DATABASE": "echocut"
+      }
+    }
+  }
+}
+

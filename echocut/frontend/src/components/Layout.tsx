@@ -1,0 +1,3 @@
+import { Clapperboard } from "lucide-react";import { Link, NavLink, Outlet } from "react-router-dom";
+export function Layout(){return <><header className="border-b border-[#25282c]"><div className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between"><Link to="/" className="flex items-center gap-2 font-display text-xl"><Clapperboard size={20} className="text-gold"/>EchoCut</Link><nav aria-label="Primary" className="flex gap-5 text-sm text-slate"><NavLink to="/projects">Projects</NavLink><NavLink to="/status">System status</NavLink></nav></div></header><main><Outlet/></main><footer className="max-w-7xl mx-auto px-5 py-10 text-xs text-slate">EchoCut · Diagnostic hypotheses, never guaranteed audience reactions.</footer></>}
+

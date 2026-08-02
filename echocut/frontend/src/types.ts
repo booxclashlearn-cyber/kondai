@@ -1,0 +1,13 @@
+export type Version = { id:string; project_id:string; label:"Cut A"|"Cut B"; version_number:number; description:string; script_status:string; video_status:string; created_at:string; updated_at:string };
+export type Project = { id:string; owner_id:string; title:string; genre:string; intended_audience:string; target_duration_seconds:number; description:string; status:string; created_at:string; updated_at:string; versions:Version[] };
+export type Activity = { id:string; event_type:string; message:string; metadata:Record<string, unknown>; created_at:string };
+export type ReadinessStatus = "ready"|"not_configured"|"unavailable"|"degraded";
+export type Readiness = { services: Record<string, {status:ReadinessStatus; detail:string}> };
+export type Page<T> = {items:T[];page:number;page_size:number;total:number};
+export type MediaAsset={id:string;version_id:string;kind:"script"|"video";original_name:string;content_type:string;size_bytes:number;checksum_sha256:string;duration_seconds:number|null;created_at:string};
+export type Scene={id:string;scene_number:number;heading:string;summary:string;start_ms:number;end_ms:number;character_ids:string[]};
+export type Character={id:string;name:string;description:string};
+export type StoryFact={id:string;statement:string;fact_type:"fact"|"reveal"|"prop"|"relationship";introduced_scene_id:string;payoff_scene_id:string|null};
+export type EvidenceCue={id:string;timestamp_ms:number;event_type:"dialogue"|"visual"|"audio"|"object";summary:string;confidence:number};
+export type ExtractionContent={scenes:Scene[];characters:Character[];story_facts:StoryFact[];evidence:EvidenceCue[];limitations:string[]};
+export type Extraction={id:string;job_id:string;version_id:string;job_status:string;provider:string;model_name:string|null;review_status:"draft"|"approved";content:ExtractionContent;created_at:string;updated_at:string};
