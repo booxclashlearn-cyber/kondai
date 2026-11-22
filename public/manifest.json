@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "kondai",
+  "version": "1.0.0",
+  "description": "Replaces ERR_INTERNET_DISCONNECTED with your 24-hour browsed web cache and an offline-capable Hybrid AI assistant powered by Firebase AI Logic.",
+  "permissions": [
+    "sidePanel",
+    "webNavigation",
+    "alarms",
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Open kondai"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
